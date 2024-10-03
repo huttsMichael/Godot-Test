@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://t06ygm3fnuxr"]
+
+[ext_resource type="Script" path="res://scripts/HealthPickup.gd" id="1_5ybnt"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_fk6cn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ggfap"]
+albedo_color = Color(0, 1, 0, 1)
+albedo_texture_msdf = true
+emission_enabled = true
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_avbwd"]
+
+[node name="HealthPickup" type="Node3D"]
+script = ExtResource("1_5ybnt")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_fk6cn")
+surface_material_override/0 = SubResource("StandardMaterial3D_ggfap")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_avbwd")
